@@ -1,4 +1,4 @@
-const GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
+const GIPHY_LOADING_URL = 'https://media.giphy.com/media/cZDRRGVuNMLOo/giphy.gif';
 
 Gif = React.createClass({
   getUrl: function() {
@@ -7,9 +7,9 @@ Gif = React.createClass({
 
   render: function() {
     const url = this.props.loading ? GIPHY_LOADING_URL : this.props.url;
-    const styles={margin: '0 auto', minHeight: '400px'};
+    const styles={margin: '0 auto', maxWidth: '600px'};
     const styles1={width: '100%'}
-    const styles2 = {margin: '20px auto', width: '100%', maxWidth: '600px'};
+    const styles2 = {margin: '20px auto', width: '100%', };
     return (
       <div style={styles}>
         <a style={styles1} href={this.getUrl()} title='view this on giphy' target='new'>
