@@ -12,7 +12,9 @@ Search = React.createClass({
       this.props.onSearch(searchingText);
     }
   },
-
+  handleClick: function(){
+    this.props.onSearch(this.state.searchingText);
+  },
   handleKeyUp: function(event) {
     if (event.keyCode === 13) {
       this.props.onSearch(this.state.searchingText);
@@ -20,15 +22,22 @@ Search = React.createClass({
   },
 
   render: function() {
-    const styles = {fontSize: '1.5em', width: '90%', maxWidth: '350px'};
+    const InputStyles = {fontSize: '1.5em', width: '90%', maxWidth: '350px', padding: '10px 5px', outline: 'none'};
+    const buttonStyle = {marginTop: '10px', border: 'none', borderRadius: '10px', padding: '10px 15px', outline: 'none', cursor:'pointer'}
 
-    return <input
-             type="text"
-             onChange={this.handleChange}
-             onKeyUp={this.handleKeyUp}
-             placeholder="Tutaj wpisz wyszukiwaną frazę"
-             style={styles}
-             value={this.state.searchTerm}
-            />
+    return (
+    <div>
+      <input
+         type="text"
+         onChange={this.handleChange}
+         onKeyUp={this.handleKeyUp}
+         placeholder="Tutaj wpisz wyszukiwaną frazę"
+         style={InputStyles}
+         value={this.state.searchTerm}
+        />
+        <br />
+        <button style={buttonStyle} onClick={this.handleClick}>Random gif</button>
+    </div>
+  );
   }
 });
